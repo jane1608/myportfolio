@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paula Jane D. Exconde | Computer Engineer Portfolio</title>
+
+<style>
+/* =========================
+   GLOBAL STYLES
+========================= */
+:root{
+    --primary:#7c3aed;
+    --secondary:#a855f7;
+    --accent:#c084fc;
+    --dark:#1e1b4b;
+    --text:#4b5563;
+    --light:#f8f7ff;
+    --white:#ffffff;
+    --shadow:0 10px 30px rgba(124,58,237,0.15);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--light);
+    color:var(--text);
+    line-height:1.7;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(255,255,255,0.9);
+    backdrop-filter:blur(10px);
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+}
+
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 30px;
+}
+
+.logo{
+    font-size:1.4rem;
+    font-weight:700;
+    color:var(--primary);
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:var(--dark);
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--primary);
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 20px;
+    background:
+    radial-gradient(circle at top left,#d8b4fe 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#c4b5fd 0%,transparent 35%),
+    linear-gradient(135deg,#f8f7ff,#ede9fe);
+}
+
+.hero-content{
+    max-width:850px;
+    animation:fadeUp 1s ease;
+}
+
+.hero h1{
+    font-size:4rem;
+    color:var(--dark);
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:var(--primary);
+}
+
+.hero p{
+    font-size:1.25rem;
+    margin-bottom:35px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 32px;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+    box-shadow:var(--shadow);
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+section{
+    padding:90px 20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.4rem;
+    color:var(--dark);
+    margin-bottom:50px;
+    position:relative;
+}
+
+.section-title::after{
+    content:"";
+    width:80px;
+    height:4px;
+    background:var(--primary);
+    display:block;
+    margin:12px auto;
+    border-radius:10px;
+}
+
+/* =========================
+   ABOUT
+========================= */
+.about{
+    text-align:center;
+}
+
+.about p{
+    max-width:850px;
+    margin:auto;
+    font-size:1.05rem;
+}
+
+/* =========================
+   PROJECTS
+========================= */
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.project-card{
+    background:white;
+    border-radius:18px;
+    padding:28px;
+    box-shadow:var(--shadow);
+    transition:.35s;
+}
+
+.project-card:hover{
+    transform:translateY(-10px);
+}
+
+.project-card h3{
+    color:var(--dark);
+    margin-bottom:12px;
+}
+
+.tech{
+    margin:15px 0;
+    color:var(--primary);
+    font-weight:600;
+}
+
+.project-btn{
+    display:inline-block;
+    margin-top:10px;
+    text-decoration:none;
+    background:var(--primary);
+    color:white;
+    padding:10px 18px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.project-btn:hover{
+    background:var(--secondary);
+}
+
+/* =========================
+   SKILLS
+========================= */
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.skill{
+    background:white;
+    padding:22px;
+    text-align:center;
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    font-weight:600;
+    transition:.3s;
+}
+
+.skill:hover{
+    transform:translateY(-6px);
+    color:var(--primary);
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact{
+    text-align:center;
+}
+
+.contact-card{
+    background:white;
+    max-width:700px;
+    margin:auto;
+    padding:40px;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+}
+
+.contact-card p{
+    margin-bottom:15px;
+}
+
+.social-links{
+    margin-top:20px;
+}
+
+.social-links a{
+    display:inline-block;
+    margin:8px;
+    padding:12px 22px;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    border-radius:8px;
+    transition:.3s;
+}
+
+.social-links a:hover{
+    transform:translateY(-3px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer{
+    background:var(--dark);
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+.hidden{
+    opacity:0;
+    transform:translateY(30px);
+    transition:all .8s ease;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:2.7rem;
+    }
+
+    .hero p{
+        font-size:1rem;
+    }
+
+    .nav-links{
+        gap:12px;
+        font-size:.9rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="nav-container">
+        <div class="logo">PJE</div>
+
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Hi, I'm <span>Paula Jane D. Exconde</span></h1>
+
+        <p>
+            Computer Engineering Student • Aspiring Web Developer •
+            Passionate About Technology, Innovation, and Creative Digital Experiences
+        </p>
+
+        <a href="#projects" class="btn">View My Work</a>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="hidden">
+    <div class="container about">
+        <h2 class="section-title">About Me</h2>
+
+        <p>
+            Hello! I'm <strong>Paula Jane D. Exconde</strong>, a Computer Engineering student
+            with a growing passion for web development and technology. I enjoy
+            creating clean, responsive, and user-friendly websites while
+            continuously improving my programming and problem-solving skills.
+            Beyond coding, I love listening to music and playing video games,
+            which inspire creativity, strategic thinking, and innovation. My
+            goal is to combine engineering knowledge with modern web technologies
+            to build meaningful digital solutions.
+        </p>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="hidden">
+    <div class="container">
+
+        <h2 class="section-title">Projects</h2>
+
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <h3>Personal Portfolio Website</h3>
+
+                <p>
+                    A modern responsive portfolio website showcasing my
+                    skills, projects, and professional background.
+                </p>
+
+                <div class="tech">
+                    HTML • CSS • JavaScript
+                </div>
+
+                <a href="#" class="project-btn">View Project</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Bird Repellent Monitoring System</h3>
+
+                <p>
+                    A smart agriculture project designed to help farmers
+                    reduce crop damage using sensors and automated deterrent mechanisms.
+                </p>
+
+                <div class="tech">
+                    Arduino • Sensors • Embedded Systems
+                </div>
+
+                <a href="#" class="project-btn">View Project</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Student Information System</h3>
+
+                <p>
+                    A database-driven application for managing student records,
+                    information, and academic data efficiently.
+                </p>
+
+                <div class="tech">
+                    HTML • CSS • MySQL • GitHub
+                </div>
+
+                <a href="#" class="project-btn">View Project</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="hidden">
+    <div class="container">
+
+        <h2 class="section-title">Skills</h2>
+
+        <div class="skills-grid">
+
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">GitHub</div>
+            <div class="skill">MySQL</div>
+            <div class="skill">Responsive Web Design</div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="hidden">
+
+    <div class="container contact">
+
+        <h2 class="section-title">Contact Me</h2>
+
+        <div class="contact-card">
+
+            <p><strong>Email:</strong> renpiad@gmail.com</p>
+
+            <p>
+                I'm always open to discussing technology, web development,
+                academic projects, and collaboration opportunities.
+            </p>
+
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank">Facebook</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Paula Jane D. Exconde | Computer Engineer Portfolio</p>
+</footer>
+
+<script>
+// Reveal Sections on Scroll
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".hidden").forEach(section=>{
+    observer.observe(section);
+});
+
+// Active Navigation Highlight
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.clientHeight;
+
+        if(scrollY >= sectionTop){
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.style.color = "";
+        if(link.getAttribute("href") === "#" + current){
+            link.style.color = "#7c3aed";
+        }
+    });
+});
+</script>
+
+</body>
+</html>
